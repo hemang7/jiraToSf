@@ -4,7 +4,7 @@ const redis = require('redis');
 const { response } = require("express");
 const Queue = require("bull");
 var username = "arpit.r.sharma@mavq.com";
-var password = "BfsNl9YuXlsfUabFJhID3AF2";
+var password = "";
 
 const token = `${username}:${password}`;
 const encodedToken = Buffer.from(token).toString("base64");
