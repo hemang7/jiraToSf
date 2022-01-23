@@ -4,7 +4,7 @@ const redis = require('redis');
 const { response } = require("express");
 const Queue = require("bull");
 var username = "arpit.r.sharma@mavq.com";
-var password = "";
+var password = "gFZN3kt9ZeT1G6CKhiN40774";
 
 const token = `${username}:${password}`;
 const encodedToken = Buffer.from(token).toString("base64");
@@ -26,7 +26,7 @@ async function requestToJira(hmURL) {
 
   await axios(config)
     .then(function (response) {
-      //  console.log(response.data);
+       console.log(response.data);
       response.data.forEach((element) => {
         if (element.emailAddress !== undefined) {
           //   console.log(element.accountId);
@@ -157,5 +157,11 @@ allWorklogsQueue.process(async function (job, done) {
      await sendIssueRequest(job.data.issuees);
      done();
    });
+   allaccountIdsQueue.on('completed', function (job, result) {
+    
+  });
 
+  allWorklogsQueue.on('completed', function (job, result) {
+    
+  });
 getAccountId();
